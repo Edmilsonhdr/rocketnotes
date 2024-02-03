@@ -5,13 +5,17 @@ import GlobalStyles from "./styles/global";
 
 import theme from "./styles/theme";
 
+import { MyContext } from "./MyContext";
+
 import { Routes } from "./routes";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Routes />
+      <MyContext.Provider value={{ email: "edmilson@gmail.com" }}>
+        <Routes />
+      </MyContext.Provider>
     </ThemeProvider>
   </React.StrictMode>
 );
