@@ -10,7 +10,7 @@ export function Profil() {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [passwordOld, setPasswordOld] = useState();
-  const [passwordNew, serPasswordNew] = useState();
+  const [passwordNew, setPasswordNew] = useState();
 
   async function handleUpdate() {
     const user = {
@@ -62,7 +62,7 @@ export function Profil() {
           placeholder="Nova senha"
           type="password"
           icon={FiLock}
-          onChange={(e) => serPasswordNew(e.target.value)}
+          onChange={(e) => setPasswordNew(e.target.value)}
         ></Input>
         <Button title="Salvar" onClick={handleUpdate} />
       </Form>
