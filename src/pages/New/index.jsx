@@ -28,6 +28,10 @@ export function New() {
     setNewTag("");
   }
 
+  function handleRemoveTag(deleted) {
+    setTags((prevState) => prevState.filter((tag) => tag !== deleted));
+  }
+
   return (
     <Container>
       <Header />
@@ -58,7 +62,11 @@ export function New() {
           <Section title="Marcadores">
             <div className="tags">
               {tags.map((tag, index) => (
-                <NoteItem key={String(index)} value={tag} onClick={() => {}} />
+                <NoteItem
+                  key={String(index)}
+                  value={tag}
+                  onClick={() => handleRemoveTag(tag)}
+                />
               ))}
               <NoteItem
                 isNew
