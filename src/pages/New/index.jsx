@@ -16,6 +16,10 @@ export function New() {
     setNewLink(""); // Limpar o campo de input após adicionar o link
   }
 
+  function handleRemoveLink(deleted) {
+    setLinks((prevState) => prevState.filter((link) => link !== deleted));
+  }
+
   return (
     <Container>
       <Header />
@@ -29,7 +33,11 @@ export function New() {
           <TextArea placeholder="Observações" />
           <Section title="Links úteis">
             {links.map((link, index) => (
-              <NoteItem key={String(index)} value={link} onClick={() => {}} />
+              <NoteItem
+                key={String(index)}
+                value={link}
+                onClick={() => handleRemoveLink(link)}
+              />
             ))}
             <NoteItem
               isNew
